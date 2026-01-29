@@ -66,8 +66,8 @@ if ($EXECUTION_MODE=="STANDARD") {
 
     // Expected format input|ts|gamets|PLAYER_NAME::
     $gameRequest = explode("|", $receivedData);
-    
-    $userWish=explode(":",$gameRequest[3]);
+
+    $userWish = explode(":", $gameRequest[3], 2);
     $output='';
     $instruction=escapeshellarg("{$userWish[1]}");
     $db->upsertRowOnConflict(
@@ -87,7 +87,7 @@ if ($EXECUTION_MODE=="STANDARD") {
     // Expected format input|ts|gamets|PLAYER_NAME::
     $gameRequest = explode("|", $receivedData);
     
-    $userWish=explode(":",$gameRequest[3]);
+    $userWish=explode(":",$gameRequest[3], 2);
     $output='';
     $instruction=escapeshellarg("{$userWish[1]}");
     $db->upsertRowOnConflict(
